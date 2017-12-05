@@ -1,0 +1,33 @@
+{
+  "name": "serverless-webapp-demo",
+  "version": "1.0.0",
+  "description": "Serverless webapp demo application for w3c conference in Korea",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/www.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novemberde/serverless-webapp-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/novemberde/serverless-webapp-demo/issues"
+  },
+  "homepage": "https://github.com/novemberde/serverless-webapp-demo#readme",
+  "devDependencies": {
+    "@types/aws-serverless-express": "^2.1.2",
+    "@types/express": "^4.0.39",
+    "@types/node": "^8.0.54",
+    "nodemon": "^1.12.4",
+    "serverless": "^1.24.1",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "aws-serverless-express": "^3.0.2",
+    "express": "^4.16.2"
+  }
+}

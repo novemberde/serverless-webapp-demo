@@ -18,6 +18,9 @@ jobs:
       # Build
       - run: npx tsc
 
+      # Test AWS configure
+      - run: aws s3 ls
+
       # Deploy App
       - run: npx serverless deploy
       

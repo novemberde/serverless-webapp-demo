@@ -18,6 +18,9 @@ jobs:
       # Build
       - run: npx tsc
 
+      # Test
+      - run: npm test
+
       # Deploy App
       - run: npx serverless deploy
       

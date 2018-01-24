@@ -6,7 +6,7 @@ class App {
     constructor () {
         this.app = express();
         this.app.get("/*", (req, res, next) => {
-            res.send("Welcome to AWSKRUG architecture meetup!");
+            res.send("Welcome to AWSKRUG architecture meetup!!");
         });
     }
 

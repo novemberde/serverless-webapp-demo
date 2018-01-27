@@ -6,12 +6,6 @@ provider:
   memorySize: 128
   stage: dev
   region: us-east-1
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action: 
-        - "xray:PutTraceSegments"
-        - "xray:PutTelemetryRecords"
-      Resource: "*"
   environment:
     NODE_ENV: production
 

@@ -3,9 +3,9 @@ service: aws-nodejs
 provider:
   name: aws
   runtime: nodejs6.10
-  memorySize: 128
+  memorySize: 512
   stage: dev
-  region: us-east-1
+  region: ap-northeast-2
   environment:
     NODE_ENV: production
 
@@ -18,6 +18,6 @@ custom:
 
 functions:
   hello:
-    handler: bin/handler.app
+    handler: handler.app
     events:
       - http: ANY {proxy+}

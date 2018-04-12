@@ -5,10 +5,10 @@ import * as express from 'express';
 const app: express.Application = new App().app;
 
 describe('GET /test', () => {
-    it('should return 200 status code', (done) => {
+    it('should return 302 status code', (done) => {
         request(app)
         .get('/test')
-        .expect(200)
+        .expect(302)
         .end((err, res) => {
             if (err) throw err;
 

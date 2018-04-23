@@ -24,4 +24,6 @@ functions:
   SimpleApi:
     handler: bin/SimpleApiHandler.app
     events:
-      - http: GET simple
+      - http:
+          path: simple
+          method: get

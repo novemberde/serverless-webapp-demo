@@ -10,12 +10,12 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
       - run: npm install
-      # Build
-      - run: npx tsc
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      # Build
+      - run: npx tsc
   test:
     docker:
       - image: novemberde/node-awscli
@@ -27,13 +27,13 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
       - run: npm install
-      
-      # Build
-      - run: npx tsc
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      
+      # Build
+      - run: npx tsc
       # Test
       - run: npm test
   deployDev:
@@ -47,12 +47,12 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
       - run: npm install
-      # Build
-      - run: npx tsc
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      # Build
+      - run: npx tsc
       - run: npx serverless deploy --stage dev
   deployProd:
     docker:
@@ -65,12 +65,12 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
       - run: npm install
-      # Build
-      - run: npx tsc
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      # Build
+      - run: npx tsc
       - run: npx serverless deploy --stage prod
       
 workflows:

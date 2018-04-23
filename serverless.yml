@@ -21,3 +21,7 @@ functions:
     handler: bin/handler.app
     events:
       - http: ANY {proxy+}
+  SimpleApi:
+    handler: bin/SimpleApiHandler
+    events:
+      - http: GET simple

@@ -22,7 +22,7 @@ functions:
     events:
       - http: ANY {proxy+}
   SimpleApi:
-    handler: bin/SimpleHandler.app
+    handler: bin/SimpleHandler.api
     events:
       - http:
           path: simple

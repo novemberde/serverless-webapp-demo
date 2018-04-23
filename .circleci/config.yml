@@ -6,14 +6,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
       - run: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
       # Build
       - run: npx tsc
   test:
@@ -23,15 +16,7 @@ jobs:
     steps:
       - checkout
       # - run: ls -al
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
       - run: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      
       # Build
       - run: npx tsc
       # Test
@@ -43,14 +28,7 @@ jobs:
     steps:
       - checkout
       # - run: ls -al
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
       - run: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
       # Build
       - run: npx tsc
       - run: npx serverless deploy --stage dev
@@ -61,14 +39,7 @@ jobs:
     steps:
       - checkout
       # - run: ls -al
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
       - run: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
       # Build
       - run: npx tsc
       - run: npx serverless deploy --stage prod

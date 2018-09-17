@@ -9,7 +9,7 @@ jobs:
       - run: npm install
       # Build
       - run: npx tsc
-      - run: docker ps
+      - run: docker build -t test ./
       - run: exit 1
   test:
     docker:

@@ -2,14 +2,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: docker:stable
-      - image: novemberde/node-awscli
+      - image: novemberde/node-awscli:docker
     working_directory: ~/repo
     steps:
       - checkout
       - run: npm install
       # Build
       - run: npx tsc
+      - run: docker ps
       - run: exit 1
   test:
     docker:

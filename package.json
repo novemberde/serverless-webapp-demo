@@ -27,6 +27,7 @@
     "@types/supertest": "^2.0.4",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.4",
+    "puppeteer": "^1.8.0",
     "serverless": "^1.24.1",
     "serverless-apigw-binary": "^0.4.4",
     "should": "^13.1.3",

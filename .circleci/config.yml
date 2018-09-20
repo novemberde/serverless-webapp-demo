@@ -2,70 +2,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: novemberde/node-awscli:docker
+      - image: alekzonder/puppeteer
     working_directory: ~/repo
     steps:
       - checkout
-      - setup_remote_docker:   # (2)
-          docker_layer_caching: true # (3)
-      - run: npm install
+      # This configuration is enable to build a docker image.
+      - setup_remote_docker:
+          docker_layer_caching: true
+      # - run: npm install
       # Build
-      - run: npx tsc
-      - run: docker build -t test ./
-      - run: exit 1
-  test:
-    docker:
-      - image: novemberde/node-awscli
-    working_directory: ~/repo
-    steps:
-      - checkout
-      # - run: ls -al
-      - run: npm install
-      # Build
-      - run: npx tsc
-      # Test
-      - run: npm test
-  deployDev:
-    docker:
-      - image: novemberde/node-awscli
-    working_directory: ~/repo
-    steps:
-      - checkout
-      # - run: ls -al
-      - run: npm install
-      # Build
-      - run: npx tsc
-      - run: npx serverless deploy --stage dev
-  deployProd:
-    docker:
-      - image: novemberde/node-awscli
-    working_directory: ~/repo
-    steps:
-      - checkout
-      # - run: ls -al
-      - run: npm install
-      # Build
-      - run: npx tsc
-      - run: npx serverless deploy --stage prod
-      
-workflows:
-  version: 2
-  build-test-and-deploy:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
-      - deployDev:
-          requires:
-            - test
-      - hold:
-          type: approval
-          requires:
-           - deployDev
-      - deployProd:
-          requires:
-            - hold
-      # - deploy:
-      #     requires:
-      #       - test2
+      - run: node puppeteer.test.js
+      # - run: exit 1
